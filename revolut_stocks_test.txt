@@ -1,0 +1,9 @@
+China Mobile	CHL
+Apple	AAPL
+Tesla	TSLA
+Alphabet (Class A)	GOOGL
+Alphabet (Class C)	GOOG
+Amazon	AMZN
+Microsoft	MSFT
+Meta Platforms	FB
+Virgin Galactic	SPCE
