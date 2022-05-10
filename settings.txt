@@ -1,2 +1,2 @@
 stock_list_filename:revolut_stocks.txt
-start_mode:REG
+start_mode:INIT
