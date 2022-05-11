@@ -1,0 +1,55 @@
+CREATE TABLE Stock (
+    Name nvarchar(50) NOT NULL,
+    Symbol nvarchar(50) NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY
+);
+
+CREATE TABLE Candle (
+    [Open] decimal(15,3) NOT NULL,
+    [Close] decimal(15,3) NOT NULL,
+    High decimal(15,3) NOT NULL,
+    Low decimal(15,3) NOT NULL,
+    Date date NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY,
+    StockID int NOT NULL,
+    FOREIGN KEY (StockID) REFERENCES Stock(ID)
+);
+
+CREATE TABLE Indicator (
+    EMA12 decimal(15,3) NOT NULL,
+    EMA26 decimal(15,3) NOT NULL,
+	EMA100 decimal(15,3) NOT NULL,
+    MACD decimal(15,3) NOT NULL,
+    Signal decimal(15,3) NOT NULL,
+    RSI decimal(15,3) NOT NULL,
+    Average_Gain decimal(15,3) NOT NULL,
+    Average_Loss decimal(15,3) NOT NULL,
+    Date date NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY,
+    StockID int NOT NULL,
+    FOREIGN KEY (StockID) REFERENCES Stock(ID)
+);
+
+CREATE TABLE Pattern (
+    Name nvarchar(50) NOT NULL,
+    Date date NOT NULL,
+    Strength int NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY,
+    StockID int NOT NULL,
+    FOREIGN KEY (StockID) REFERENCES Stock(ID)
+);
+
+CREATE TABLE Prediction (
+    Strength int NOT NULL,
+    Date date NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY,
+    StockID int NOT NULL,
+    FOREIGN KEY (StockID) REFERENCES Stock(ID)
+);
+
+
+CREATE TABLE Log (  
+    Date smalldatetime NOT NULL,
+    Message nvarchar(500) NOT NULL,
+    ID int NOT NULL IDENTITY PRIMARY KEY,
+);
